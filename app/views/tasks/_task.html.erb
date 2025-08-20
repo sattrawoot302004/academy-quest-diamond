@@ -1,11 +1,16 @@
 
 <div class="bg-white rounded-lg p-3 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200">
   <div class="flex items-center gap-3">
+
+    <%= form_with url: update_task_path(task), method: :patch, local: false do |f| %>
+      <%= f.check_box :completed, checked: task.completed, onchange: "this.form.requestSubmit();", class: "w-4 h-4 text-blue-500 rounded border-2 border-gray-300 focus:ring-2 focus:ring-blue-400 transition-colors" %>
+    <% end %>
+    
     <!-- Task Title -->
     <span class="flex-1 text-sm md:text-base text-gray-700">
       <%= task.title %>
     </span>
-    
+
     <%= button_to delete_task_path(task), method: :delete,
           class: "text-gray-400 hover:text-red-500 transition-colors p-1 flex-shrink-0",
           title: "Delete task" do %>

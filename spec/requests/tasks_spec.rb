@@ -84,4 +84,29 @@ end
       expect(response).to redirect_to(root_path)
     end
   end
+
+   describe "PATCH /update" do
+    it "updates the requested task's completed status" do
+      task = Task.create! valid_attributes
+      patch update_task_path(task), params: { completed: true }
+      task.reload
+      expect(task.completed).to eq(true)
+      expect(response).to redirect_to(root_path)
+    end
+  end
+
+  describe "DELETE /destroy" do
+    it "destroys the requested task" do
+      task = Task.create! valid_attributes
+      expect {
+        delete update_task_path(task)
+      }.to change(Task, :count).by(-1)
+    end
+
+    it "redirects to the tasks list" do
+      task = Task.create! valid_attributes
+      delete update_task_path(task)
+      expect(response).to redirect_to(root_path)
+    end
+  end
 end

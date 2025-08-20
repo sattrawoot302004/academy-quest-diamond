@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get "/tasks", to: "tasks#index", as: :tasks
   post "/tasks", to: "tasks#create", as: :create_task
   delete "/tasks/:id", to: "tasks#destroy", as: :delete_task
+  patch "/tasks/:id", to: "tasks#update", as: :update_task
   get "/brags", to: "brags#index", as: :brags
 end
