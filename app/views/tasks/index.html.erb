@@ -1,34 +1,19 @@
-    <div class="min-h-screen bg-gray-50 py-4 px-3">
+   <div class="min-h-screen bg-gray-50 py-4 px-3">
     <div class="max-w-sm md:max-w-lg lg:max-w-xl mx-auto">
     <div class="bg-white rounded-xl shadow-sm p-4 md:p-6 mt-4 border border-gray-100">
     <div class="text-center mb-6">
     <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center">
     <%= image_tag "sattrawoot.jpg", alt: "SP", class: "w-18 h-18 md:w-22 md:h-22 rounded-full object-cover" %>
     </div>
-    <h3 class="text-sm md:text-base text-gray-600 font-medium">Sattrawoot Parnemeng</h3>
+       <h3 class="text-sm md:text-base text-gray-600 font-medium">Sattrawoot Parnemeng</h3>
       <h1 class="text-lg md:text-xl font-bold text-gray-900 mt-1">My Academy Quest</h1>
-      </div>
-        <div class="mb-6">
-      <div class="grid grid-cols-2 gap-3 mb-4">
-        <div class="bg-green-50 border border-green-200 rounded-lg p-3 text-center">
-          <div class="text-lg font-bold text-green-600">
-      <%= turbo_frame_tag "tasks_list" do %>
-            <%= @tasks.where(completed: true).count %>
-          </div>
-          <div class="text-xs text-gray-600">สำเร็จ</div>
-        </div>
-        <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-center">
-          <div class="text-lg font-bold text-red-600">
-            <%= @tasks.where(completed: false).count %>
-          </div>
-          <div class="text-xs text-gray-600">ยังไม่สำเร็จ</div>
-        </div>
       </div>
       <div class="mb-6">
       <%= link_to "Brags Document", brags_path, class: "block w-full text-center bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium py-2.5 px-4 rounded-xl text-sm transition-all duration-200" , data: { testid: "brags-link" } %>
-      </div>
+       </div>
+      <%= turbo_frame_tag "tasks_list" do %>
         <div class="bg-gray-50 rounded-xl p-3 mb-4">
-      <%= form_with(model: @task, url: create_task_path, method: :post) do |form| %>
+           <%= form_with(model: @task, url: create_task_path, method: :post) do |form| %>
       <div class="space-y-3">
       <div class="flex flex-col md:flex-row gap-3">
         <%= form.text_field :title,
@@ -44,10 +29,10 @@
         <% end %>
         </div>
         <div class="space-y-2 ">
-        <% @tasks.each do |task| %>
-        <%= render partial: "task", locals: { task: task } %>
-        <% end %>
-        </div>
+             <% @tasks.each do |task| %>
+              <%= render partial: "task", locals: { task: task } %>
+              <% end %>
+              </div>
         <% end %>
         </div>
       </div>
