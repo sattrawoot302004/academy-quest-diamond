@@ -89,7 +89,7 @@ jobs:
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
           RAILS_ENV: test
-        run: bin/rails db:create db:migrate db:seed
+        run: bin/rails db:create db:migrate db:seed assets:precompile
 
       - name: Run tests
         env:

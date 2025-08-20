@@ -50,7 +50,7 @@ end
 
 When("I click check {string} box") do |text|
   find("[data-testid='#{CHECKBOX_MAPPING[text]}']").click
-  sleep 0.1
+  sleep 2
 end
 
 Then("I shoud see title checked {string} content") do |text|
