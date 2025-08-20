@@ -1,1 +1,9 @@
-<h1>Test</h1>
+<div> 
+<h1 class="text-xl">Test render partial</h1>
+</div>
+
+<div class="space-y-2 ">
+        <% @tasks.each do |task| %>
+          <%= render partial: "task", locals: { task: task } %>
+        <% end %>
+      </div>

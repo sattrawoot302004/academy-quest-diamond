@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Task.destroy_all
+
+Task.create!([
+  { title: "Learn Ruby on Rails", completed: true },
+  { title: "Build a To-Do App", completed: false },
+  { title: "Write RSpec tests", completed: false },
+  { title: "Deploy to production", completed: false }
+])
+
+puts "Seeded #{Task.count} tasks."
