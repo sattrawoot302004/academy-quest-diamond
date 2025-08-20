@@ -1,4 +1,5 @@
-
+<div class="min-h-screen bg-gray-50 py-4 px-3 flex flex-col items-center">
+<div class="w-full max-w-sm md:max-w-lg bg-white rounded-xl shadow-sm p-4 md:p-6 mt-4 border border-gray-100">
 <div class="text-center mb-6">
       <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center">
         <%= image_tag "sattrawoot.jpg", alt: "SP", class: "w-18 h-18 md:w-22 md:h-22 rounded-full object-cover" %>
@@ -15,10 +16,13 @@
         <%= form_with(model: @task, url: create_task_path, method: :post) do |form| %>
            <div class="space-y-3">
       <%= form.text_field :title, 
-            placeholder: "Add new task...", 
+            placeholder: "เพิ่มรายการใหม่", 
             class: "w-full border-0 bg-white rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 transition-all #{'border-red-500 ring-2 ring-red-400' if @task.errors[:title].any?}", 
             data: { testid: "task-title-input" } %>
-      <%= form.submit "Add Task", class: "w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-lg font-medium text-sm transition-all duration-200", data: { testid: "create-task-button" } %>
+            <% if @task.errors[:title].any? %>
+        <p class="flex items-center gap-1 text-red-500 text-xs"> <%= image_tag "error-svgrepo-com.svg", alt: "Error", class: "w-5 h-5" %>กรุณาระบุรายละเอียด</p>
+      <% end %>
+      <%= form.submit "เพิ่มรายการ", class: "w-full bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-lg font-medium text-sm transition-all duration-200", data: { testid: "create-task-button" } %>
     </div>
         <% end %>
       </div>
@@ -28,3 +32,5 @@
           <%= render partial: "task", locals: { task: task } %>
         <% end %>
       </div>
+</div>
+</div>
