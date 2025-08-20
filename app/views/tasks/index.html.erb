@@ -9,7 +9,7 @@
     </div>
 
      <div class="mb-6">
-      <%= link_to "Brags Document", brags_path, class: "block w-full text-center bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium py-2.5 px-4 rounded-xl text-sm transition-all duration-200" %>
+      <%= link_to "Brags Document", brags_path, class: "block w-full text-center bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white font-medium py-2.5 px-4 rounded-xl text-sm transition-all duration-200" , data: { testid: "brags-link" } %>
     </div>
  <%= turbo_frame_tag "tasks_list" do %>
         <div class="bg-gray-50 rounded-xl p-3 mb-4">

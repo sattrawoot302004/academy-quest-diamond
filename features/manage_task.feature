@@ -1,4 +1,4 @@
-Feature: Add courses to school
+Feature: Todolist Page
     As an User
     I want to create todo list
     So that i can manage my work
