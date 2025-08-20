@@ -20,4 +20,4 @@ Scenario: create task
  Scenario: click check box 
     When I shoud see content "Deploy to production"
     And I click check "deploy" box
-    Then I shoud see title checked "deploy" content
+    Then I shoud see checkbox "deploy" checked

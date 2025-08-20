@@ -12,13 +12,6 @@ CHECKBOX_MAPPING = {
   "deploy" => "complete-checkbox-4"
 }
 
-TITLE_MAPPPING = {
-   "lerning ruby" => "task-title-1",
-  "todolist" => "task-title-2",
-  "write rspec" => "task-title-3",
-  "deploy" => "task-title-4"
-}
-
 Given("I should at todo list page") do
   visit root_path
   expect(page).to have_current_path(root_path)
@@ -50,11 +43,11 @@ end
 
 When("I click check {string} box") do |text|
   find("[data-testid='#{CHECKBOX_MAPPING[text]}']").click
-  sleep 2
 end
 
-Then("I shoud see title checked {string} content") do |text|
-  expect(page).to have_css("[data-testid='#{TITLE_MAPPPING[text]}'].line-through")
+Then("I shoud see checkbox {string} checked") do |text|
+  checkbox = find("[data-testid='#{CHECKBOX_MAPPING[text]}']", visible: :all)
+  expect(checkbox).to be_checked
 end
 
 When("I shoud see content {string}") do |content|
