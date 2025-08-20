@@ -24,8 +24,22 @@ RSpec.describe "/tasks", type: :request do
   describe "GET /index" do
     it "renders a successful response" do
       Task.create! valid_attributes
-      get root_path
+      get tasks_path
       expect(response).to be_successful
     end
   end
+   describe "POST /create" do
+    context "with valid parameters" do
+      it "creates a new Task" do
+        expect {
+          post tasks_path, params: { task: valid_attributes }
+        }.to change(Task, :count).by(1)
+      end
+
+      it "redirects to the tasks list" do
+        post tasks_path, params: { task: valid_attributes }
+        expect(response).to redirect_to(root_path)
+      end
+    end
+end
 end

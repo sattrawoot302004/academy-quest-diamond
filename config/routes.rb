@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "tasks#index"
-  get "brags", to: "brags#index", as: :brags
+
+  get "/tasks", to: "tasks#index", as: :tasks
+  post "/tasks",     to: "tasks#create", as: :create_task
+  get "/brags", to: "brags#index", as: :brags
 end
