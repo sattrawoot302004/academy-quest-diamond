@@ -5,5 +5,11 @@
     <span class="flex-1 text-sm md:text-base text-gray-700">
       <%= task.title %>
     </span>
+    
+    <%= button_to delete_task_path(task), method: :delete,
+          class: "text-gray-400 hover:text-red-500 transition-colors p-1 flex-shrink-0",
+          title: "Delete task" do %>
+       <%= image_tag "delete-2-svgrepo-com.svg", alt: "Delete", class: "w-5 h-5" %>
+    <% end %>
   </div>
 </div>
