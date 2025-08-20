@@ -7,7 +7,7 @@
     <% end %>
     
     <!-- Task Title -->
-    <span class="flex-1 text-sm md:text-base text-gray-700">
+    <span class="flex-1 text-sm md:text-base text-gray-700 min-w-0 break-words <%= task_complete_class(task) %>">
       <%= task.title %>
     </span>
 
