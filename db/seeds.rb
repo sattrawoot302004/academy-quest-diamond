@@ -9,6 +9,7 @@
 #   end
 
 Task.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('tasks')
 now = Time.current
 Task.create!([
    { title: "Learn Ruby on Rails", completed: true, created_at: now - 4.days },
