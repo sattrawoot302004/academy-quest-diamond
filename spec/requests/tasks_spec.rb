@@ -13,5 +13,19 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/tasks", type: :request do
-  ###
+   let(:valid_attributes) do
+    { title: "Valid Task Title" }
+  end
+
+  let(:invalid_attributes) do
+    { title: "" }
+  end
+
+  describe "GET /index" do
+    it "renders a successful response" do
+      Task.create! valid_attributes
+      get root_path
+      expect(response).to be_successful
+    end
+  end
 end
